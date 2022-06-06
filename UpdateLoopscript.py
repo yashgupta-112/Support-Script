@@ -1,5 +1,5 @@
 from subprocess import check_output
-appname = input("Please app you want to upgrade: ")
+appname = input("Please application name you want to upgrade: ")
 
 while True:
     status =  check_output("app-{app} upgrade",   shell=True).format(appname)
