@@ -37,7 +37,7 @@ class FactorReset():
     def unmount_rclone(self):
         grep_path = os.popen("mount | grep $USER").read()
         if grep_path == "":
-            print("No rclone on your service")
+            pass
         else:
             rclone_path = grep_path.split()
             rclone_path = rclone_path[2]
@@ -142,7 +142,7 @@ class FactorReset():
             for s in final_list:
                 os.system("systemctl --user stop {}".format(s))
                 os.system("rm -rf" + " " + path + "/" + i)
-                print("{} service has been stopped and removed".format(s))
+                
         os.system("systemctl --user daemon-reload")
         os.system("systemctl --user reset-failed")
 
@@ -156,7 +156,6 @@ class FactorReset():
     Install fresh .profile and .bashrc and delete old files
     """
     def Fresh_Bash_install(self):
-        print("Deleting your old .bashrc and .profile")
         os.system("rm -rf .bashrc")
         os.system("rm -rf .profile")
         os.system("cp /etc/skel/.profile ~/")
