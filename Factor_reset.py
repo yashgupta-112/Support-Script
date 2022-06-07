@@ -184,6 +184,9 @@ class FactorReset():
         for i in delete_dir:
             os.system("rm -rf" + " " + path + "/" + i)
 
+    def package_install(package):
+        FNULL = open(os.devnull, 'w')
+        check_call([sys.executable, "-m", "pip", "install", package], stdout=FNULL)
             
 
 
@@ -193,7 +196,7 @@ if __name__ == '__main__':
     try:
         import halo
     except ImportError as e:
-        package_install('halo')
+        reset.package_install('halo')
         import halo
     spinner = halo.Halo(text='In-Progress', text_color='red', spinner='bouncingBar')
     print("\033[91m" + "Disclaimer: This script is unofficial and USB staff will not support any issues with it" + "\033[0m")
