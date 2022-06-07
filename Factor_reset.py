@@ -23,7 +23,9 @@ systemd_app = config_path + '/systemd/user/'
 media = path + '/media'
 """"""
 
-
+def package_install(package):
+        FNULL = open(os.devnull, 'w')
+        check_call([sys.executable, "-m", "pip", "install", package], stdout=FNULL)
 
 
 class FactorReset():
@@ -181,9 +183,7 @@ class FactorReset():
         for i in delete_dir:
             os.system("rm -rf" + " " + path + "/" + i)
 
-    def package_install(self,package):
-        FNULL = open(os.devnull, 'w')
-        check_call([sys.executable, "-m", "pip", "install", package], stdout=FNULL)
+    
             
 
 
