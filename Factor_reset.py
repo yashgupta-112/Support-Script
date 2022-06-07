@@ -23,9 +23,7 @@ systemd_app = config_path + '/systemd/user/'
 media = path + '/media'
 """"""
 
-def package_install(package):
-    FNULL = open(os.devnull, 'w')
-    check_call([sys.executable, "-m", "pip", "install", package], stdout=FNULL)
+
 
 
 class FactorReset():
