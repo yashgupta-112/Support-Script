@@ -193,7 +193,7 @@ if __name__ == '__main__':
     try:
         import halo
     except ImportError as e:
-        reset.package_install('halo')
+        package_install('halo')
         import halo
     spinner = halo.Halo(text='In-Progress', text_color='red', spinner='bouncingBar')
     print("\033[91m" + "Disclaimer: This script is unofficial and USB staff will not support any issues with it" + "\033[0m")
