@@ -181,7 +181,7 @@ class FactorReset():
         for i in delete_dir:
             os.system("rm -rf" + " " + path + "/" + i)
 
-    def package_install(package):
+    def package_install(self,package):
         FNULL = open(os.devnull, 'w')
         check_call([sys.executable, "-m", "pip", "install", package], stdout=FNULL)
             
