@@ -8,6 +8,6 @@ while True:
         print("success")
         break
     elif "false" in status:
-        status =  check_output("app-plex upgrade",   shell=True)
+        status =  check_output(f"app-{appname} upgrade",   shell=True)
         print("fail")
 
