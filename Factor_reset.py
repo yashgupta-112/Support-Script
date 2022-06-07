@@ -222,7 +222,7 @@ if __name__ == '__main__':
             reset.clear_corntab()
             reset.Finalfix()
             spinner.stop()
-            print("Cleanup complete")
+            print("Cleanup process has been completed")
         if choice == "3":
             spinner.start()
             reset.uninstall_apps_directory(apps_path)
@@ -233,13 +233,13 @@ if __name__ == '__main__':
             reset.clear_corntab()
             reset.Finalfix()
             spinner.stop()
-            print("Cleanup complete")
+            print("Cleanup process has been completed")
         if choice == "2":
             spinner.start()
             reset.Remove_Extra_directory(path)
             reset.Finalfix()
             spinner.stop()
-            print("Cleanup complete")
+            print("Cleanup process has been completed")
         if choice == "4":
             spinner.start() 
             reset.delete_Data_from_maindirectory(
@@ -247,7 +247,7 @@ if __name__ == '__main__':
             reset.Delete_Custom_media_files(media)
             reset.Finalfix()
             spinner.stop()
-            print("Cleanup complete")
+            print("Cleanup process has been completed")
     elif s == "no" or s == "NO" or s == "No":
         print("Factor Reset has been stopped,All your data is safe")
     else:
