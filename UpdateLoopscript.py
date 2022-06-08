@@ -1,9 +1,9 @@
 import os
 import sys
 from subprocess import check_output, check_call
-
-check_output("pip install halo",shell=True)
-
+import time
+os.popen("pip install halo").read()
+time.sleep(3)
 
 import halo
 spinner = halo.Halo(text='In-Progress', text_color='magenta', spinner='bouncingBar')
