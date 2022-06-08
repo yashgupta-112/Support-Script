@@ -5,7 +5,7 @@ from subprocess import check_output, check_call
 #install halo package if it's not there
 def package_install():
     FNULL = open(os.devnull, 'w')
-    check_call(["pip", "install", 'halo'], stdout=FNULL)
+    check_output("pip install halo", shell=True)
 
 #check halo package for spinner
 try:
