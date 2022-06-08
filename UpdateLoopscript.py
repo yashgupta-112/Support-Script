@@ -2,20 +2,17 @@ import os
 import sys
 from subprocess import check_output, check_call
 
-#install halo package if it's not there
-def package_install():
-    FNULL = open(os.devnull, 'w')
-    check_output("pip install halo", shell=True)
 
-#check halo package for spinner
+
 try:
-    package_install()
     import halo
-except ImportError as e:
-    package_install()
-    import halo
+except ImportError:
+    FNULL = open(os.devnull, 'w')
+    check_call([sys.executable, "-m", "pip", "install", 'halo'], stdout=FNULL)
+
 #App Upgrade
 finally:
+    import halo
     spinner = halo.Halo(text='In-Progress', text_color='magenta', spinner='bouncingBar')
     appname = input("Enter AppName to upgrade: ")
 
