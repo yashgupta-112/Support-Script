@@ -10,8 +10,9 @@ def package_install():
 #check halo package for spinner
 try:
     package_install()
+    import halo
 except ImportError as e:
-    package_install('halo')
+    package_install()
     import halo
 #App Upgrade
 finally:
