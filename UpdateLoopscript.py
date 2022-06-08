@@ -3,13 +3,13 @@ import sys
 from subprocess import check_output, check_call
 
 #install halo package if it's not there
-def package_install(package):
+def package_install():
     FNULL = open(os.devnull, 'w')
-    check_call([sys.executable, "-m", "pip", "install", package], stdout=FNULL)
+    check_call([sys.executable, "-m", "pip", "install", 'halo'], stdout=FNULL)
 
 #check halo package for spinner
 try:
-    import halo
+    package_install()
 except ImportError as e:
     package_install('halo')
     import halo
