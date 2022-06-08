@@ -2,10 +2,8 @@ import os
 import sys
 from subprocess import check_output, check_call
 import time
-os.system("pip install halo")
-os.system("clear")
-
 import halo
+
 spinner = halo.Halo(text='In-Progress', text_color='magenta', spinner='bouncingBar')
 appname = input("Enter AppName to upgrade: ")
 
