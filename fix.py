@@ -1,23 +1,19 @@
 import os
 import sys
+import subprocess
 from subprocess import check_output, check_call
-from pip._internal import main 
-import importlib
-#install halo package if it's not there
 
-#check halo package for spinner
-try:
-    importlib.import_module('halo')
-except ImportError:
-    main(['install', 'halo'])
-    os.system("clear")
-    
-#App Upgrade
-finally:
-    import halo
+#install halo package if it's not there
+def package_install(package):
+    subprocess.call(["/usr/bin/pip3", "install", "--user", "-q", "--no-cache-dir", "--disable-pip-version-check", "halo"])
+
+def check_halo():
+    os.system("pip list | grep halo")
+
+def app_upgrade():
     spinner = halo.Halo(text='In-Progress', text_color='magenta', spinner='bouncingBar')
     appname = input("Enter AppName to upgrade: ")
-
+        
     spinner.start()
     count = 1
     while True:
@@ -29,3 +25,17 @@ finally:
             break
         elif "false" in status:
             count +=1
+
+
+#check halo package for spinner
+try:
+    if check_halo == '':
+        package_install('halo')
+        import halo
+        app_upgrade()
+    else:
+        import halo
+        app_upgrade()
+
+except:
+    print("Unable to install Halo module, try to run 'pip3 install halo' and then script again.")
