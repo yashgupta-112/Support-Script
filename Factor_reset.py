@@ -26,6 +26,7 @@ media = path + '/media'
 def package_install(package):
         FNULL = open(os.devnull, 'w')
         check_call([sys.executable, "-m", "pip", "install", package], stdout=FNULL)
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 class FactorReset():
@@ -194,7 +195,7 @@ if __name__ == '__main__':
         import halo
     except ImportError as e:
         package_install('halo')
-        import halo
+        import halo  
     spinner = halo.Halo(text='In-Progress', text_color='red', spinner='bouncingBar')
     print("\033[91m" + "Disclaimer: This script is unofficial and USB staff will not support any issues with it" + "\033[0m")
     s = input("Are you sure you want to delete all your data and applications config because once script is executed your data will be deleted forever we won't be able to get back your data ? (yes/no)")
