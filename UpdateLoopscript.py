@@ -23,7 +23,7 @@ finally:
     while True:
         status = check_output(f"app-{appname} upgrade".format(appname=appname), shell=True)
         status = status.decode("utf-8")
-        if "true" in status:
+        if "true" in status:g
             spinner.stop()
             print("[SUCCESS] Upgrade Count:", count)
             break
